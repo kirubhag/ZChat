@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "ZChat Theme",
+  "description": "This extension will allow you to customize the colors of your Zoho Chat.",
+  "version": "1.0",
+  /*  Use browser actions to put icons in the main Google Chrome toolbar, to the right of the address bar.
+  In addition to its icon, a browser action can also have a tooltip, a badge, and a popup.*/
+  "browser_action": {
+    "default_icon": {
+      "128": "images/book-icon.png"
+    },
+    "default_title": "ZChat Theme",
+    "default_popup": "settings.html"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": ["css/style.css"],
+      "js": [
+        "js/lib/jquery/jquery-1.11.2.min.js",
+        "js/lib/handlebar/handlebars-v3.0.0.js",
+        "js/custom/ZChatTheme.js"
+      ]
+    }
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": ["js/custom/ZChatTheme.js"]
+}

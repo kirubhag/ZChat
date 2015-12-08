@@ -1,0 +1,63 @@
+.zchat-theme {
+    width: 200px;
+    height: 30px;
+}
+
+.zchat-theme ul {
+    list-style: none;
+}
+
+.theme-circle {
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+
+.alpha {
+    background-color: #2962FF;
+}
+
+.beta {
+    background-color: #6200EA;
+}
+
+.gamma {
+    background-color: #C51162;
+}
+
+.delta {
+    background-color: #00C853;
+}
+
+.ThemeAlphaHover {
+    background-color: #2979FF !important;
+    border-color: #2962FF !important;
+}
+
+.ThemeBetaHover {
+    background-color: #B388FF !important;
+    border-color: #651FFF !important;
+}
+
+.ThemeGammaHover {
+    background-color: #F50057 !important;
+    border-color: #FF80AB !important;
+}
+
+.ThemeDeltaHover {
+    background-color: #00E676 !important;
+    border-color: #B9F6CA !important;
+}
+
+/*ZChat CSS*/
+.userdetails .ellips, .zcmorechl, .zcbdytitle {
+    color: #fff !important;
+}
+
+#userimage img {
+    border-radius: 25px;
+}
+
