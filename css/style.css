@@ -14,6 +14,7 @@
     display: inline-block;
     float: left;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .alpha {
@@ -29,7 +30,7 @@
 }
 
 .delta {
-    background-color: #00C853;
+    background-color: #33691E;
 }
 
 .ThemeAlphaHover {
@@ -61,3 +62,19 @@
     border-radius: 25px;
 }
 
+.forbidden-sign {
+    position: relative;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 7px;
+    transform: rotate(135deg);
+}
+
+.forbidden-cross {
+    position: absolute;
+    top: 6px;
+    padding: 1px;
+    background-color: red;
+    width: 13px;
+    left: 0px;
+}

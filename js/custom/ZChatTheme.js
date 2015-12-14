@@ -14,60 +14,68 @@ var ZChatTheme = (function (ZChatTheme) {
     //Constant variable declaration
     ZChatTheme.Themes = [];
 
-    var ThemeAlpha = {
-        name: "ThemeAlpha",
-        leftPanel: {
-            textColor: {"color": "#fff"},
-            userDetailsColor: {"background-color": "#2962FF"},
-            chatListColor: {"background-color": "#448AFF"},
-            chatListHoverColor: {"background-color": "#2979FF", "border-color": "#2962FF"},
-            chatListHoverClear: {"background-color": "#448AFF", "border-color": "#448AFF"},
-            scrollBarColor: {"background-color": "#E3F2FD"},
-            scrollBarBGColor: {"background-color": "#0D47A1"}
-        }
-    }, ThemeBeta = {
-        name: "ThemeBeta",
-        leftPanel: {
-            textColor: {"color": "#fff"},
-            userDetailsColor: {"background-color": "#6200EA"},
-            chatListColor: {"background-color": "#7C4DFF"},
-            chatListHoverColor: {"background-color": "#B388FF", "border-color": "#651FFF"},
-            chatListHoverClear: {"background-color": "#7C4DFF", "border-color": "#7C4DFF"},
-            scrollBarColor: {"background-color": "#651FFF"},
-            scrollBarBGColor: {"background-color": "#7C4DFF"}
-        }
-    }, ThemeGamma = {
-        name: "ThemeGamma",
-        leftPanel: {
-            textColor: {"color": "#fff"},
-            userDetailsColor: {"background-color": "#C51162"},
-            chatListColor: {"background-color": "#FF4081"},
-            chatListHoverColor: {"background-color": "#F50057", "border-color": "#FF80AB"},
-            chatListHoverClear: {"background-color": "#FF4081", "border-color": "#FF4081"},
-            scrollBarColor: {"background-color": "#651FFF"},
-            scrollBarBGColor: {"background-color": "#FF4081"}
-        }
-    }, ThemeDelta = {
-        name: "ThemeDelta",
-        leftPanel: {
-            textColor: {"color": "#fff"},
-            userDetailsColor: {"background-color": "#00C853"},
-            chatListColor: {"background-color": "#69F0AE"},
-            chatListHoverColor: {"background-color": "#00E676", "border-color": "#B9F6CA"},
-            chatListHoverClear: {"background-color": "#69F0AE", "border-color": "#69F0AE"},
-            scrollBarColor: {"background-color": "#651FFF"},
-            scrollBarBGColor: {"background-color": "#69F0AE"}
-        }
-    }, ZChatTemplate = '<div id="theme_Wrap" style="/* display: none; */position: absolute;right: 75px;top: 10px;">' +
-        '<section class="zchat-theme">' +
-        '<ul>' +
-        '<li><span class="theme-circle alpha" data-theme="ThemeAlpha"></span></li>' +
-        '<li><span class="theme-circle beta" data-theme="ThemeBeta"></span></li>' +
-        '<li><span class="theme-circle gamma" data-theme="ThemeGamma"></span></li>' +
-        '<li><span class="theme-circle delta" data-theme="ThemeDelta"></span></li>' +
-        '</ul>' +
-        '</section>' +
-        '</div>';
+    var ThemeDefault = {
+            name: "ThemeDefault"
+        },
+        ThemeAlpha = {
+            name: "ThemeAlpha",
+            leftPanel: {
+                textColor: {"color": "#fff"},
+                userDetailsColor: {"background-color": "#2962FF"},
+                chatListColor: {"background-color": "#448AFF"},
+                chatListHoverColor: {"background-color": "#2979FF", "border-color": "#2962FF"},
+                chatListHoverClear: {"background-color": "#448AFF", "border-color": "#448AFF"},
+                scrollBarColor: {"background-color": "#E3F2FD"},
+                scrollBarBGColor: {"background-color": "#0D47A1"}
+            }
+        }, ThemeBeta = {
+            name: "ThemeBeta",
+            leftPanel: {
+                textColor: {"color": "#fff"},
+                userDetailsColor: {"background-color": "#6200EA"},
+                chatListColor: {"background-color": "#7C4DFF"},
+                chatListHoverColor: {"background-color": "#B388FF", "border-color": "#651FFF"},
+                chatListHoverClear: {"background-color": "#7C4DFF", "border-color": "#7C4DFF"},
+                scrollBarColor: {"background-color": "#651FFF"},
+                scrollBarBGColor: {"background-color": "#7C4DFF"}
+            }
+        }, ThemeGamma = {
+            name: "ThemeGamma",
+            leftPanel: {
+                textColor: {"color": "#fff"},
+                userDetailsColor: {"background-color": "#AD1457"},
+                chatListColor: {"background-color": "#C51162"},
+                chatListHoverColor: {"background-color": "#D81B60", "border-color": "#D81B60"},
+                chatListHoverClear: {"background-color": "#C51162", "border-color": "#C51162"},
+                scrollBarColor: {"background-color": "#651FFF"},
+                scrollBarBGColor: {"background-color": "#C51162"}
+            }
+        }, ThemeDelta = {
+            name: "ThemeDelta",
+            leftPanel: {
+                textColor: {"color": "#fff"},
+                userDetailsColor: {"background-color": "#33691E"},
+                chatListColor: {"background-color": "#689F38"},
+                chatListHoverColor: {"background-color": "#9CCC65", "border-color": "#9CCC65"},
+                chatListHoverClear: {"background-color": "#689F38", "border-color": "#689F38"},
+                scrollBarColor: {"background-color": "#33691E"},
+                scrollBarBGColor: {"background-color": "#689F38"}
+            }
+        }, ZChatTemplate = '<div id="theme_Wrap" style="position: absolute;right: 100px;top: 12px;">' +
+            '<section class="zchat-theme">' +
+            '<ul>' +
+            '<li>' +
+            '<div class="theme-circle forbidden-sign" data-theme="ThemeDefault">' +
+            '<span class="forbidden-cross"></span>' +
+            '</div>' +
+            '</li>' +
+            '<li><span class="theme-circle alpha" data-theme="ThemeAlpha"></span></li>' +
+            '<li><span class="theme-circle beta" data-theme="ThemeBeta"></span></li>' +
+            '<li><span class="theme-circle gamma" data-theme="ThemeGamma"></span></li>' +
+            '<li><span class="theme-circle delta" data-theme="ThemeDelta"></span></li>' +
+            '</ul>' +
+            '</section>' +
+            '</div>';
 
 
     ZChatTheme.Themes.push(ThemeAlpha);
@@ -92,17 +100,25 @@ var ZChatTheme = (function (ZChatTheme) {
 
     //Closure function declaration
     ZChatTheme.init = function () {
-        $("#ztb-android").before(ZChatTemplate);
+        var themeAsString;
 
+        $("#ztb-android").before(ZChatTemplate);
         $("body").on("click", ".theme-circle", function (event) {
 
+            var cnt = 0;
             $.each(ZChatTheme.Themes, function (index, theme) {
                 if ($(event.target).data("theme") === theme.name) {
-                    var themeAsString = JSON.stringify(theme);
+                    themeAsString = JSON.stringify(theme);
                     ZChatTheme.setDataLocally("currentTheme", themeAsString);
                     ZChatTheme.renderTheme();
+                    cnt += 1;
                 }
             });
+
+            if (cnt === 0) {
+                ZChatTheme.setDataLocally("currentTheme", ThemeDefault);
+                window.location.reload();
+            }
         });
 
         $("body").on("click", ".zcuserstatus:not(.zcmorechl)", function () {
@@ -152,25 +168,30 @@ var ZChatTheme = (function (ZChatTheme) {
 
     ZChatTheme.renderTheme = function () {
 
-        var themeName = ZChatTheme.getCurrentTheme(),
+        var Theme = ZChatTheme.getCurrentTheme(),
             CSSAttribute;
 
-        CSSAttribute = themeName.leftPanel;
+        CSSAttribute = Theme.leftPanel;
 
-        ZChatTheme.clearThemeHoverStyle();
-        $(".zcuserstatus:not(.zcmorechl)").removeAttr("style");
+        if (Theme.name !== "ThemeDefault") {
+            ZChatTheme.clearThemeHoverStyle();
+            $(".zcuserstatus:not(.zcmorechl)").removeAttr("style");
 
-        //Render Left panel
-        $.each(ZChatTheme.DOMStructure.leftPanel, function (index, domElement) {
-            $(domElement).css(CSSAttribute[index]);
-        });
+            //Render Left panel
+            $.each(ZChatTheme.DOMStructure.leftPanel, function (index, domElement) {
+                $(domElement).css(CSSAttribute[index]);
+            });
 
-        $("body").on("mouseover", ".zcuserstatus:not(.zcmorechl)", function () {
-            $(this).css(themeName.leftPanel.chatListHoverColor);
-        });
-        $("body").on("mouseleave", ".zcuserstatus:not(.zcmorechl)", function () {
-            $(this).css(themeName.leftPanel.chatListHoverClear);
-        });
+            $("body").on("mouseover", ".zcuserstatus:not(.zcmorechl)", function () {
+                $(this).css(Theme.leftPanel.chatListHoverColor);
+            });
+            $("body").on("mouseleave", ".zcuserstatus:not(.zcmorechl)", function () {
+                $(this).css(Theme.leftPanel.chatListHoverClear);
+            });
+        } else {
+            ZChatTheme.setDataLocally("currentTheme", ThemeDefault);
+            window.location.reload();
+        }
     };
 
     return ZChatTheme;
