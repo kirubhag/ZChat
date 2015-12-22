@@ -23,6 +23,8 @@ var ZChatTheme = (function (ZChatTheme) {
                 textColor: {"color": "#fff"},
                 userDetailsColor: {"background-color": "#2962FF"},
                 chatListColor: {"background-color": "#448AFF"},
+                friendRequest: {"background-color": "#448AFF"},
+                statusDropDownList: {"background-color": "#448AFF"},
                 chatListHoverColor: {"background-color": "#2979FF", "border-color": "#2962FF"},
                 chatListHoverClear: {"background-color": "#448AFF", "border-color": "#448AFF"},
                 scrollBarColor: {"background-color": "#E3F2FD"},
@@ -34,6 +36,8 @@ var ZChatTheme = (function (ZChatTheme) {
                 textColor: {"color": "#fff"},
                 userDetailsColor: {"background-color": "#6200EA"},
                 chatListColor: {"background-color": "#7C4DFF"},
+                friendRequest: {"background-color": "#7C4DFF"},
+                statusDropDownList: {"background-color": "#7C4DFF"},
                 chatListHoverColor: {"background-color": "#B388FF", "border-color": "#651FFF"},
                 chatListHoverClear: {"background-color": "#7C4DFF", "border-color": "#7C4DFF"},
                 scrollBarColor: {"background-color": "#651FFF"},
@@ -45,6 +49,8 @@ var ZChatTheme = (function (ZChatTheme) {
                 textColor: {"color": "#fff"},
                 userDetailsColor: {"background-color": "#AD1457"},
                 chatListColor: {"background-color": "#C51162"},
+                friendRequest: {"background-color": "#C51162"},
+                statusDropDownList: {"background-color": "#C51162"},
                 chatListHoverColor: {"background-color": "#D81B60", "border-color": "#D81B60"},
                 chatListHoverClear: {"background-color": "#C51162", "border-color": "#C51162"},
                 scrollBarColor: {"background-color": "#651FFF"},
@@ -56,6 +62,8 @@ var ZChatTheme = (function (ZChatTheme) {
                 textColor: {"color": "#fff"},
                 userDetailsColor: {"background-color": "#33691E"},
                 chatListColor: {"background-color": "#689F38"},
+                friendRequest: {"background-color": "#689F38"},
+                statusDropDownList: {"background-color": "#689F38"},
                 chatListHoverColor: {"background-color": "#9CCC65", "border-color": "#9CCC65"},
                 chatListHoverClear: {"background-color": "#689F38", "border-color": "#689F38"},
                 scrollBarColor: {"background-color": "#33691E"},
@@ -88,6 +96,8 @@ var ZChatTheme = (function (ZChatTheme) {
             textColor: ".zcbdytitle",
             userDetailsColor: ".chatheader",
             chatListColor: ".contactslist",
+            friendRequest: ".zcfrntrgstmn",
+            statusDropDownList: "#stdropdownlist",
             chatListHoverColor: ".contactslist .chatsel",
             scrollBarColor: "section.zcleftsidebar ::-webkit-scrollbar",
             scrollBarBGColor: "::-webkit-scrollbar"
@@ -122,10 +132,11 @@ var ZChatTheme = (function (ZChatTheme) {
         });
 
         $("body").on("click", ".zcuserstatus:not(.zcmorechl)", function () {
-            var themeName = ZChatTheme.getCurrentTheme(),
-                hoverClassName = themeName.name + "Hover";
+            var currentTheme = ZChatTheme.getCurrentTheme(),
+                hoverClassName = currentTheme.name + "Hover";
 
-            $(this).removeAttr("style");
+            $("." + hoverClassName).removeAttr("style").removeClass(hoverClassName);
+            $(".zcuserstatus").attr("style", currentTheme.leftPanel.chatListHoverColor);
             $(this).addClass(hoverClassName);
         });
     };
