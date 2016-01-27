@@ -69,18 +69,18 @@ var ZChatTheme = (function (ZChatTheme) {
                 scrollBarColor: {"background-color": "#33691E"},
                 scrollBarBGColor: {"background-color": "#689F38"}
             }
-        }, ZChatTemplate = '<div id="theme_Wrap" style="position: absolute;right: 100px;top: 12px;">' +
+        }, ZChatTemplate = '<div id="theme_Wrap" style="position: absolute;right: 135px;top: 12px;">' +
             '<section class="zchat-theme">' +
             '<ul>' +
             '<li>' +
-            '<div class="theme-circle forbidden-sign" data-theme="ThemeDefault">' +
+            '<div class="theme-circle forbidden-sign ztooltip"  ztooltip="Default Theme" data-theme="ThemeDefault">' +
             '<span class="forbidden-cross"></span>' +
             '</div>' +
             '</li>' +
-            '<li><span class="theme-circle alpha" data-theme="ThemeAlpha"></span></li>' +
-            '<li><span class="theme-circle beta" data-theme="ThemeBeta"></span></li>' +
-            '<li><span class="theme-circle gamma" data-theme="ThemeGamma"></span></li>' +
-            '<li><span class="theme-circle delta" data-theme="ThemeDelta"></span></li>' +
+            '<li><span class="theme-circle alpha ztooltip"  ztooltip="Theme Alpha" data-theme="ThemeAlpha"></span></li>' +
+            '<li><span class="theme-circle beta ztooltip" ztooltip="Theme Beta" data-theme="ThemeBeta"></span></li>' +
+            '<li><span class="theme-circle gamma ztooltip" ztooltip="Theme Gamma" data-theme="ThemeGamma"></span></li>' +
+            '<li><span class="theme-circle delta ztooltip" ztooltip="Theme Delta" data-theme="ThemeDelta"></span></li>' +
             '</ul>' +
             '</section>' +
             '</div>';
